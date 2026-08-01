@@ -1,0 +1,67 @@
+@page
+@model TishiesVeggies.Pages.LogPages.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Log</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Log.Id" />
+            <div class="form-group">
+                <label asp-for="Log.LoggedAt" class="control-label"></label>
+                <input asp-for="Log.LoggedAt" class="form-control" />
+                <span asp-validation-for="Log.LoggedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Log.Notes" class="control-label"></label>
+                <input asp-for="Log.Notes" class="form-control" />
+                <span asp-validation-for="Log.Notes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="Log.Quantity" class="control-label"></label>
+                <input asp-for="Log.Quantity" class="form-control" aria-required="true"/>
+                <span asp-validation-for="Log.Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Log.Rating" class="control-label"></label>
+                <input asp-for="Log.Rating" class="form-control" />
+                <span asp-validation-for="Log.Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="Log.FruitId" class="control-label"></label>
+                <input asp-for="Log.FruitId" class="form-control" aria-required="true"/>
+                <span asp-validation-for="Log.FruitId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Log.Fruit" class="control-label"></label>
+                <input asp-for="Log.Fruit" class="form-control" />
+                <span asp-validation-for="Log.Fruit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Log.TotalValue" class="control-label"></label>
+                <input asp-for="Log.TotalValue" class="form-control" />
+                <span asp-validation-for="Log.TotalValue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

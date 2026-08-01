@@ -1,0 +1,136 @@
+@page
+@model TishiesVeggies.Pages.LogPages.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Log</h4>
+<hr />
+<div class="text-center"> 
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @* <div class="form-group">
+                <label asp-for="Log.LoggedAt" class="control-label"></label>
+                <input asp-for="Log.LoggedAt" class="form-control" />
+                <span asp-validation-for="Log.LoggedAt" class="text-danger"></span>
+            </div> *@
+
+            @* <div class="form-group">
+                <label asp-for="Log.Fruit" class="control-label"></label>
+                <input asp-for="Log.Fruit" class="form-control" />
+                <span asp-validation-for="Log.Fruit" class="text-danger"></span>
+            </div> *@
+
+            @* ------------------------------------------------------- *@
+
+            @* <div class="form-group">
+    <label class="control-label">Fruit</label>
+
+    <input asp-for="Log.Fruit" type="hidden" id="selectedFruit" />
+
+    <div class="fruit-container">
+        <div class="fruit-card" onclick="selectFruit(this, 'Apple')">
+            🍎 Apple
+        </div>
+
+        <div class="fruit-card" onclick="selectFruit(this, 'Banana')">
+            🍌 Banana
+        </div>
+
+        <div class="fruit-card" onclick="selectFruit(this, 'Grapes')">
+            🍇 Grapes
+        </div>
+
+        <div class="fruit-card" onclick="selectFruit(this, 'Orange')">
+            🍊 Orange
+        </div>
+
+        <div class="fruit-card" onclick="selectFruit(this, 'Strawberry')">
+            🍓 Strawberry
+        </div>
+    </div>
+
+    <span asp-validation-for="Log.Fruit" class="text-danger"></span>
+</div> *@
+                <div class="form-group">
+                    <label class="control-label">Fruit</label>
+
+                    <input asp-for="Log.FruitId" type="hidden" id="selectedFruitId" />
+
+                    <div class="fruit-container">
+
+                        @foreach (var fruit in Model.Fruits)
+                        {
+                            <div class="fruit-card"
+                                 onclick="selectFruit(this, @fruit.Id)">
+                                @fruit.Name
+                            </div>
+                        }
+
+                    </div>
+
+                    <span asp-validation-for="Log.FruitId" class="text-danger"></span>
+                </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="Log.Quantity" class="control-label"></label>
+                <input asp-for="Log.Quantity" class="form-control" aria-required="true"/>
+                <span asp-validation-for="Log.Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Log.Rating" class="control-label"></label>
+                <input asp-for="Log.Rating" class="form-control" />
+                <span asp-validation-for="Log.Rating" class="text-danger"></span>
+            </div>
+            @* <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="Log.FruitId" class="control-label"></label>
+                <input asp-for="Log.FruitId" class="form-control" aria-required="true"/>
+                <span asp-validation-for="Log.FruitId" class="text-danger"></span>
+            </div> *@
+           
+
+            <div class="form-group">
+                <label asp-for="Log.Notes" class="control-label"></label>
+                <input asp-for="Log.Notes" class="form-control" />
+                <span asp-validation-for="Log.Notes" class="text-danger"></span>
+            </div>
+            @* <div class="form-group">
+                <label asp-for="Log.TotalValue" class="control-label"></label>
+                <input asp-for="Log.TotalValue" class="form-control" />
+                <span asp-validation-for="Log.TotalValue" class="text-danger"></span>
+            </div> *@
+            <div class="form-group">
+                <input type="submit" value="Log" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="/Index">Back to List</a>
+</div>
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<script>
+        function selectFruit(card, fruitId) {
+
+        document.querySelectorAll('.fruit-card').forEach(c => {
+            c.classList.remove('selected');
+        });
+
+        card.classList.add('selected');
+
+        document.getElementById('selectedFruitId').value = fruitId;
+    }
+</script>

@@ -4,12 +4,37 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome Tishie Fish!</h1>
-    <p>@foreach (var fruit in Model.Fruits)
-        {
-            <h4>@fruit.Name</h4>
-        }
+<div class="text-start" style="color:#6C757D !important; font-family: Georgia, Times New Roman",serif;">
+    <h5>@Model.CurrentDate.ToString("dddd d MMMM yyyy")</h5>
+    <p>@Model.TodayCount / @Model.DailyGoal today</p>
+    @if (Model.GoalMet)
+    {
+        <span class="badge">🎉 Goal reached!</span>
+    }
 
-    </p>
+    <p>£@((Model.TotalPence / 100.0).ToString("0.00")) earned;)</p>
+ 
+</div>
+<div class="text-center"> 
+      <h3 class="display-4">🌱Hi Tish:)</h3>
+            <br/>
+
+
+    <a asp-page="/LogPages/Create" style="text-decoration:none">
+        <div class="standard-box">
+            
+                    <h4 > ➕ Log Fruits and Vegetables 🥦</h4>
+          
+           
+
+        
+    @* 
+            <p>@foreach (var fruit in Model.Fruits)
+                {
+                    <h4>@fruit.Name</h4>
+                }
+
+            </p> *@
+        </div>
+    </a>
 </div>
