@@ -1,0 +1,53 @@
+html {
+  font-size: 14px;
+}
+
+
+:root {
+    --bg-page: #FDEFF4;
+    --bg-card: #FFFFFF;
+    --sidebar-bg: #FBE1EC;
+    --blush: #F9CBDD;
+    --baby-pink: #F6A8C6;
+    --rose: #B5476C;
+    --maroon: #7A1734;
+    --maroon-dark: #5C1027;
+    --text-dark: #3A1420;
+    --text-muted: #96707E;
+    --border-soft: #F3D6E2;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #FBE1EC
+}
+
+h1, h2, h3, p {
+    font-family: Georgia,"Times New Roman",serif;
+    margin: 0;
+    color: var(--maroon);
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
