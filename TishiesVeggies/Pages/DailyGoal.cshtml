@@ -1,0 +1,30 @@
+﻿@page
+@model TishiesVeggies.Pages.DailyGoalModel
+@{
+    ViewData["Title"] = "Daily Goal";
+}
+
+<div class="text-center"> 
+    <h1>@ViewData["Title"]</h1>
+    <p style="font-style: italic;">You're only a few bites away from feeling ridiculously proud of yourself</p>
+    
+    <hr />
+
+    <div class="daily-box-container"> 
+        <div class="daily-goal-box">
+            <h5 style="font-size: 50px;">🎯@Model.TodayCount / @Model.DailyGoal </h5>
+            @if (Model.GoalMet)
+            {
+                <span class="badge">🎉 Goal reached!</span>
+            }
+
+            else
+            {
+                <span class="badge"> Keep Going Girl!😊 </span>
+            }
+        </div>
+
+    </div>
+   
+</div>
+

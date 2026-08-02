@@ -37,7 +37,29 @@ body {
     background-color: #FBE1EC
 }
 
-h1, h2, h3,h4, p {
+a {
+/*    color: var(--maroon);
+*/    text-decoration: none;
+}
+
+h1, h2, h3,h4,h5,p,li {
+    font-family: Georgia,"Times New Roman",serif;
+    margin: 0;
+    color: var(--maroon);
+}
+
+.container {
+    font-family: Georgia,"Times New Roman",serif;
+    margin: 0;
+    color: var(--maroon);
+}
+
+.badge {
+    font-family: Georgia,"Times New Roman",serif;
+    margin: 0;
+    color: var(--maroon);
+}
+.control-label {
     font-family: Georgia,"Times New Roman",serif;
     margin: 0;
     color: var(--maroon);
@@ -48,6 +70,37 @@ h1, h2, h3,h4, p {
     border-bottom: 5px solid var(--maroon);
     font-family: Georgia,"Times New Roman",serif;
 }
+.btn {
+    background-color: var(--rose);
+    color: white;
+    border-radius: 20px;
+    border: none;
+    padding: 10px 20px;
+    font-family: Georgia,"Times New Roman",serif;
+}
+/*WEEKLY GOAL*/
+.daily-box-container{
+    display: flex;
+    justify-content: center
+}
+.daily-goal-box {
+    border: 7px solid #B5476C;
+    border-radius: 35px;
+    padding: 40px;
+    display: inline-block;
+    background-color: white;
+    width: 500px;
+    height: 400px;
+    font-size: 30px;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 /*RELEVANT CARDS*/
 .standard-box {
     border: 7px solid #B5476C;
@@ -63,6 +116,25 @@ h1, h2, h3,h4, p {
     margin-top: 10px;
 }
 
+.standard-widget {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.standard-widget, btn:hover {
+/*    background-color: var(--rose);
+*/    transform: translateY(-2px);
+}
+
+ .standard-box:hover {
+        background-color: var(--baby-pink);
+        transform: translateY(-2px);
+    }
+
+
 .fruit-card {
     border: 2px solid #B5476C;
     border-radius: 12px;
@@ -72,14 +144,51 @@ h1, h2, h3,h4, p {
     font-weight: bold;
     background-color: white;
 }
- .fruit-card:hover {
-        background-color: #f5f5f5;
-        transform: translateY(-2px);
-    }
+
+.other-card {
+    border: 2px dashed #B5476C;
+    border-radius: 12px;
+    padding: 15px 25px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-weight: bold;
+    background-color: white;
+}
+.nav-item{
+    border-radius: 10px;
+}
+.nav-item:hover {
+    background-color: var(--rose);
+    transform: translateY(-2px);
+}
+.fruit-card:hover {
+    background-color: var(--baby-pink);
+    transform: translateY(-2px);
+}
+
+.other-card:hover {
+    background-color: var(--baby-pink);
+    transform: translateY(-2px);
+}
 
     .fruit-card.selected {
         background-color: #6C757D;
         color: white;
+    }
+
+.history-card {
+    border: 2px solid #B5476C;
+    border-radius: 12px;
+    padding: 15px 25px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-weight: bold;
+    background-color: white;
+}
+
+    .history-card:hover {
+/*        background-color: #f5f5f5;
+*/        transform: translateY(-2px);
     }
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {

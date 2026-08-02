@@ -5,12 +5,37 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>History</h1>
+<div class="text-center">
+    <p style="font-style:italic">Eat banana. Receive coin. Business is booming.</p>
+</div>
+<br />
+<hr />
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+<div class="history-card"> 
 <table class="table">
+    <tr>
+        @foreach (var day in Model.HistoryVM.History)
+        {
+            <h4 style="color:gray">@day.Date.ToString("dddd d MMMM yyyy")</h4>
+            <br />
+           <h5>Quantity: @day.Quantity</h5>
+            <ul>
+                    @foreach (var fruit in day.Fruits)
+                    {
+                        <li>@fruit.Name @*  Quantity: @fruit.Quantity - Total Value: £@fruit.TotalValue.ToString("0.00") *@</li>
+                    }
+                    
+            </ul>
+            <h5>Total Daily Earnings: £@day.TotalPrice.ToString("0.00")</h5>
+
+           <hr />
+          
+        }
+    </tr>
+</table>
+</div>
+@* <table class="table">
     <thead>
         <tr>
             <th>
@@ -70,3 +95,4 @@
 }
     </tbody>
 </table>
+ *@

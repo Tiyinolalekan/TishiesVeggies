@@ -5,19 +5,24 @@
 }
 
 <div class="text-start" style="color:#6C757D !important; font-family: Georgia, Times New Roman",serif;">
-    <h5>@Model.CurrentDate.ToString("dddd d MMMM yyyy")</h5>
-    <p>@Model.TodayCount / @Model.DailyGoal today</p>
+    <h5 style="color:#6C757D !important">@Model.CurrentDate.ToString("dddd d MMMM yyyy")</h5>
+   @*  <p>@Model.TodayCount / @Model.DailyGoal today</p>
     @if (Model.GoalMet)
     {
         <span class="badge">🎉 Goal reached!</span>
     }
 
-    <p>£@((Model.TotalPence / 100.0).ToString("0.00")) earned;)</p>
+    <p>£@((Model.TotalPence / 100.0).ToString("0.00")) earned;)</p> *@
  
 </div>
+@* <i class="bi bi-coin"></i> *@
 <div class="text-center"> 
-      <h3 class="display-4">🌱Hi Tish:)</h3>
+    <h3 class="display-4">Hi Tish😉</h3>
+    <p style="font-style: italic;">Those carrots aren't going to eat themselves. Well, hopefully not.</p>
+
+            <hr/>
             <br/>
+
 
 
     <a asp-page="/LogPages/Create" style="text-decoration:none">
@@ -25,16 +30,24 @@
             
                     <h4 > ➕ Log Fruits and Vegetables 🥦</h4>
           
-           
-
-        
-    @* 
-            <p>@foreach (var fruit in Model.Fruits)
-                {
-                    <h4>@fruit.Name</h4>
-                }
-
-            </p> *@
         </div>
     </a>
+    <div class="standard-widget">
+        <a asp-page="/DailyGoal"> 
+            <div class="standard-box">
+                <h5>🎯@Model.TodayCount / @Model.DailyGoal today</h5>
+                @if (Model.GoalMet)
+                {
+                    <span class="badge">🎉 Goal reached!</span>
+                }
+            </div>
+        </a>
+       
+        <a asp-page="/LogPages/Index">
+            <div class="standard-box">
+                <h5>💵£@((Model.TotalPence / 100.0).ToString("0.00"))</h5>
+            </div>
+        </a>
+       
+    </div>
 </div>

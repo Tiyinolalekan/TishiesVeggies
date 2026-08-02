@@ -19,7 +19,7 @@ namespace TishiesVeggies.Data
         //public int PenceValue { get; set; } = 10;
         public bool IsQuickAdd { get; set; } = true;
 
-        public List<Log> Logs { get; set; } = new List<Log>();
+        public List<Log>? Logs { get; set; } = new List<Log>();
     }
 
     public enum  ItemCategory { Fruit, Veggie}

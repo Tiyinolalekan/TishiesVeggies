@@ -22,6 +22,7 @@ namespace TishiesVeggies.Data
         [Required]
         public int FruitId { get; set; }
         public Fruit? Fruit { get; set; }
+        public string? CustomFruitName { get; set; }
 
         public int TotalValue => Quantity * 10; // Assuming each fruit/vegetable is worth 10 pence
 
