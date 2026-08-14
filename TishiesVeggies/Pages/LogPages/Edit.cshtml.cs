@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TishiesVeggies.Data;
 
@@ -16,9 +17,18 @@ public class EditModel : PageModel
 
     [BindProperty]
     public Log Log { get; set; } = default!;
+    public List<Fruit> Fruits { get; set; } = default!;
+    public IList<SelectListItem>FruitItems { get; set; }
 
     public async Task<IActionResult> OnGetAsync(int? id)
     {
+        Fruits = await _context.Fruits.ToListAsync();
+        FruitItems = Fruits.Select(f => new SelectListItem
+        {
+            Value = f.Id.ToString(),
+            Text = f.Name
+        }).ToList();
+
         if (id is null)
         {
             return NotFound();

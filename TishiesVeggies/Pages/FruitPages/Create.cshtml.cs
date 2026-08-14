@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TishiesVeggies.Data;
 
@@ -16,11 +17,21 @@ public class CreateModel : PageModel
 
     public IActionResult OnGet()
     {
+        FruitCat = Enum.GetValues<ItemCategory>()
+           .Select(f => new SelectListItem
+           {
+               Text = f.ToString(),
+               Value = f.ToString()
+           })
+           .ToList();
+
         return Page();
     }
 
     [BindProperty]
     public Fruit Fruit { get; set; } = default!;
+    public IList<SelectListItem> FruitCat { get; set; } = [];
+
 
     // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD.
     public async Task<IActionResult> OnPostAsync()
@@ -29,7 +40,7 @@ public class CreateModel : PageModel
         {
             return Page();
         }
-
+       
         _context.Fruits.Add(Fruit);
         await _context.SaveChangesAsync();
 

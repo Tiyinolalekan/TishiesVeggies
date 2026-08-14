@@ -199,3 +199,13 @@ h1, h2, h3,h4,h5,p,li {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
+.form-control {
+    background: white;
+    border-radius: 18px;
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 2px solid var(--rose);
+    width: 100%;
+    box-sizing: border-box;
+}

@@ -26,7 +26,9 @@
             <div class="form-group">
                 <span class="text-danger">*</span>
                 <label asp-for="Fruit.Category" class="control-label"></label>
-                <input asp-for="Fruit.Category" class="form-control" aria-required="true"/>
+                <select asp-for="Fruit.Category" asp-items="Model.FruitCat" class="form-control" aria-required="true">
+                    <option value="">-- Select Category --</option>
+                 </select>
                 <span asp-validation-for="Fruit.Category" class="text-danger"></span>
             </div>
             <br />

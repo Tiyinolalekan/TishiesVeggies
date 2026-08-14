@@ -17,6 +17,8 @@
     <tr>
         @foreach (var day in Model.HistoryVM.History)
         {
+                <a asp-page="/LogPages/Edit" asp-route-id="@day.LogId">
+
             <h4 style="color:gray">@day.Date.ToString("dddd d MMMM yyyy")</h4>
             <br />
            <h5>Quantity: @day.Quantity</h5>
@@ -28,6 +30,7 @@
                     
             </ul>
             <h5>Total Daily Earnings: £@day.TotalPrice.ToString("0.00")</h5>
+                </a>
 
            <hr />
           

@@ -33,6 +33,7 @@ public class IndexModel : PageModel
                 Quantity = g.Sum(l => l.Quantity),
                 TotalPrice = g.Sum(l => l.TotalValue) / 100.0, // Convert pence to pounds
                 Logs = g.ToList(),
+                LogId = g.Select(l => l.Id).FirstOrDefault(),
                 Fruits = Fruits.Where(f => g.Any(l => l.FruitId == f.Id)).ToList()
             })
             .OrderByDescending(dh => dh.Date)

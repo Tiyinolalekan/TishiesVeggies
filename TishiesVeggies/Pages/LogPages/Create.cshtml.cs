@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TishiesVeggies.Data;
 
@@ -9,6 +10,7 @@ public class CreateModel : PageModel
 {
     private readonly TishiesVeggiesDbContext _context;
     public IList<Fruit> Fruits { get; set; } = new List<Fruit>();
+    
 
     public CreateModel(TishiesVeggiesDbContext context)
     {
